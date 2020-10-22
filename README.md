@@ -15,3 +15,7 @@ console.log(protos.PokemonDisplayProto.Form.RUNERIGUS_NORMAL);  // prints 2516
 ```
 
 A list of supported APIs can be found in the [test.js](test/test.js).
+
+## Version code
+
+The version code for this library follows semantic versioning. In particular, `major.minor` will follow the upstream proto version, and `revision` represents internal revision of the proto and is uncorrelated from upstream.
