@@ -76,6 +76,8 @@ module.exports = async (version = '5bf78a1') => {
             assignRootEnum('Item');
         } else if (value[prefix + 'QUEST_HATCH_EGG'] === 6) {
             assignRootEnum('QuestType');
+        } else if (value[prefix + 'RAID_LEVEL_1'] === 1) {
+            assignRootEnum('RaidLevel');
         } else if (value[prefix + 'TEAM_BLUE'] === 1) {
             assignRootEnum('Team');
         } else if (value[prefix + 'TEMP_EVOLUTION_MEGA'] === 1) {

@@ -30,6 +30,7 @@ const tester = (spawn) => function () {
     it('QuestRewardProto', () => assert.notStrictEqual(rpc.QuestRewardProto, undefined));
     it('QuestRewardProto.Type', () => assert.notStrictEqual(rpc.QuestRewardProto.Type.MEGA_RESOURCE, undefined));
     it('QuestType', () => assert.notStrictEqual(rpc.QuestType.QUEST_BUDDY_FEED, undefined));
+    it('RaidLevel', () => assert.notStrictEqual(rpc.RaidLevel.RAID_LEVEL_MEGA, undefined));
     it('Team', () => assert.notStrictEqual(rpc.Team.TEAM_RED, undefined));
     it('TempEvolution', () => assert.notStrictEqual(rpc.TempEvolution.TEMP_EVOLUTION_MEGA_X, undefined));
 };
