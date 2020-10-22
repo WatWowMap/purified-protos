@@ -11,6 +11,7 @@ const tester = (spawn) => function () {
     it('HoloItemCategory', () => assert.notStrictEqual(rpc.HoloItemCategory.ITEM_CATEGORY_RAID_TICKET, undefined));
     it('HoloItemType', () => assert.notStrictEqual(rpc.HoloItemType.ITEM_TYPE_RAID_TICKET, undefined));
     it('HoloPokemonClass', () => assert.notStrictEqual(rpc.HoloPokemonClass.POKEMON_CLASS_MYTHIC, undefined));
+    it('HoloPokemonFamilyId', () => assert.notStrictEqual(rpc.HoloPokemonFamilyId.V0151_FAMILY_MEW, undefined));
     it('HoloPokemonId', () => assert.notStrictEqual(rpc.HoloPokemonId.V0150_POKEMON_MEWTWO, undefined));
     it('HoloPokemonMove', () => assert.notStrictEqual(rpc.HoloPokemonMove.V0109_MOVE_PSYSTRIKE, undefined));
     it('HoloPokemonType', () => assert.notStrictEqual(rpc.HoloPokemonType.POKEMON_TYPE_FAIRY, undefined));
