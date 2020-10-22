@@ -66,6 +66,8 @@ module.exports = async (version = '5bf78a1') => {
             assignRootEnum('HoloPokemonId');
         } else if (value[prefix + 'V0001_MOVE_THUNDER_SHOCK'] === 1) {
             assignRootEnum('HoloPokemonMove');
+        } else if (value[prefix + 'POKEMON_ENC_MOVEMENT_JUMP'] === 1) {
+            assignRootEnum('HoloPokemonMovementType');
         } else if (value[prefix + 'POKEMON_TYPE_NORMAL'] === 1) {
             assignRootEnum('HoloPokemonType');
         } else if (value[prefix + 'ITEM_POKE_BALL'] === 1) {

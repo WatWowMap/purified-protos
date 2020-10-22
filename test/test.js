@@ -14,6 +14,7 @@ const tester = (spawn) => function () {
     it('HoloPokemonFamilyId', () => assert.notStrictEqual(rpc.HoloPokemonFamilyId.V0151_FAMILY_MEW, undefined));
     it('HoloPokemonId', () => assert.notStrictEqual(rpc.HoloPokemonId.V0150_POKEMON_MEWTWO, undefined));
     it('HoloPokemonMove', () => assert.notStrictEqual(rpc.HoloPokemonMove.V0109_MOVE_PSYSTRIKE, undefined));
+    it('HoloPokemonMovementType', () => assert.notStrictEqual(rpc.HoloPokemonMovementType.POKEMON_ENC_MOVEMENT_ELECTRIC, undefined));
     it('HoloPokemonType', () => assert.notStrictEqual(rpc.HoloPokemonType.POKEMON_TYPE_FAIRY, undefined));
     it('Item', () => assert.notStrictEqual(rpc.Item.ITEM_REVIVE, undefined));
     it('EnumWrapper', () => assert.notStrictEqual(rpc.EnumWrapper, undefined));
