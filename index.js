@@ -56,6 +56,8 @@ module.exports = async (version = '5bf78a1') => {
             assignRootEnum('HoloActivityType');
         } else if (value[prefix + 'ITEM_CATEGORY_POKEBALL'] === 1) {
             assignRootEnum('HoloItemCategory');
+        } else if (value[prefix + 'ITEM_EFFECT_CAP_NO_MOVEMENT'] === 1002) {
+            assignRootEnum('HoloItemEffect');
         } else if (value[prefix + 'ITEM_TYPE_POKEBALL'] === 1) {
             assignRootEnum('HoloItemType');
         } else if (value[prefix + 'POKEMON_CLASS_LEGENDARY'] === 1) {

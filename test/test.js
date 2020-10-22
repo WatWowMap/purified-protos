@@ -9,6 +9,7 @@ const tester = (spawn) => function () {
 
     it('HoloActivityType', () => assert.notStrictEqual(rpc.HoloActivityType.ACTIVITY_CATCH_EXCELLENT_THROW, undefined));
     it('HoloItemCategory', () => assert.notStrictEqual(rpc.HoloItemCategory.ITEM_CATEGORY_RAID_TICKET, undefined));
+    it('HoloItemEffect', () => assert.notStrictEqual(rpc.HoloItemEffect.ITEM_EFFECT_FULL_MOTIVATION, undefined));
     it('HoloItemType', () => assert.notStrictEqual(rpc.HoloItemType.ITEM_TYPE_RAID_TICKET, undefined));
     it('HoloPokemonClass', () => assert.notStrictEqual(rpc.HoloPokemonClass.POKEMON_CLASS_MYTHIC, undefined));
     it('HoloPokemonFamilyId', () => assert.notStrictEqual(rpc.HoloPokemonFamilyId.V0151_FAMILY_MEW, undefined));
