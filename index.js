@@ -74,6 +74,8 @@ module.exports = async (version = '5bf78a1') => {
             assignRootEnum('HoloPokemonType');
         } else if (value[prefix + 'ITEM_POKE_BALL'] === 1) {
             assignRootEnum('Item');
+        } else if (value[prefix + 'GET_PLAYER'] === 2) {
+            assignRootEnum('Method');
         } else if (value[prefix + 'QUEST_HATCH_EGG'] === 6) {
             assignRootEnum('QuestType');
         } else if (value[prefix + 'RAID_LEVEL_1'] === 1) {

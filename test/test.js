@@ -20,6 +20,7 @@ const tester = (spawn) => function () {
     it('HoloPokemonMovementType', () => assert.notStrictEqual(rpc.HoloPokemonMovementType.POKEMON_ENC_MOVEMENT_ELECTRIC, undefined));
     it('HoloPokemonType', () => assert.notStrictEqual(rpc.HoloPokemonType.POKEMON_TYPE_FAIRY, undefined));
     it('Item', () => assert.notStrictEqual(rpc.Item.ITEM_REVIVE, undefined));
+    it('Method', () => assert.notStrictEqual(rpc.Method.GYM_GET_INFO, undefined));
     it('PokemonDisplayProto', () => assert.notStrictEqual(rpc.PokemonDisplayProto, undefined));
     it('PokemonDisplayProto.Alignment', () => assert.notStrictEqual(rpc.PokemonDisplayProto.Alignment.PURIFIED, undefined));
     it('PokemonDisplayProto.Costume', () => assert.notStrictEqual(rpc.PokemonDisplayProto.Costume.NOT_FOR_RELEASE_ALPHA, undefined));
