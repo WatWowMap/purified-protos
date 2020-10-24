@@ -9,6 +9,7 @@ const tester = (spawn) => function () {
 
     it('EnumWrapper', () => assert.notStrictEqual(rpc.EnumWrapper, undefined));
     it('EnumWrapper.InvasionCharacter', () => assert.notStrictEqual(rpc.EnumWrapper.InvasionCharacter.CHARACTER_DRAGON_BALLOON_GRUNT_FEMALE, undefined));
+    it('FortType', () => assert.notStrictEqual(rpc.FortType.GYM, undefined));
     it('HoloActivityType', () => assert.notStrictEqual(rpc.HoloActivityType.ACTIVITY_CATCH_EXCELLENT_THROW, undefined));
     it('HoloItemCategory', () => assert.notStrictEqual(rpc.HoloItemCategory.ITEM_CATEGORY_RAID_TICKET, undefined));
     it('HoloItemEffect', () => assert.notStrictEqual(rpc.HoloItemEffect.ITEM_EFFECT_FULL_MOTIVATION, undefined));

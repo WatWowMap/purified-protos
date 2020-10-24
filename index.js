@@ -54,6 +54,8 @@ module.exports = async (version = '5bf78a1') => {
         };
         if (value[prefix + 'ACTIVITY_CATCH_POKEMON'] === 1) {
             assignRootEnum('HoloActivityType');
+        } else if (value[prefix + 'CHECKPOINT'] === 1) {
+            assignRootEnum('FortType');
         } else if (value[prefix + 'ITEM_CATEGORY_POKEBALL'] === 1) {
             assignRootEnum('HoloItemCategory');
         } else if (value[prefix + 'ITEM_EFFECT_CAP_NO_MOVEMENT'] === 1002) {
