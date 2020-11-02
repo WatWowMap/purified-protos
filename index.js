@@ -3,6 +3,18 @@ const protobuf = require("protobufjs");
 
 module.exports = async (version = '5bf78a1') => {
     const proto = await axios.get(`https://raw.githubusercontent.com/Furtif/POGOProtos/${version}/base/raw_protos.proto`);
+    const oldAdd = protobuf.Namespace.prototype.add;
+    protobuf.Namespace.prototype.add = function (object) {
+        try {
+            return oldAdd.call(this, object);
+        } catch (e) {
+            console.warn(e);
+            this.nested[object.name] = object;
+            object.onAdd(this);
+            this._nestedArray = null;
+            return this;
+        }
+    }
     const rpc = protobuf.parse(proto.data).root.DumpProtos;
 
     const assignWithCheck = (obj, field, value) => {
