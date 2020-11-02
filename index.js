@@ -1,7 +1,7 @@
 const axios = require('axios');
 const protobuf = require("protobufjs");
 
-module.exports = async (version = '5bf78a1') => {
+module.exports = async (version = '52cb8c6') => {
     const proto = await axios.get(`https://raw.githubusercontent.com/Furtif/POGOProtos/${version}/base/raw_protos.proto`);
     const oldAdd = protobuf.Namespace.prototype.add;
     protobuf.Namespace.prototype.add = function (object) {
