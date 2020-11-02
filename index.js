@@ -2,8 +2,8 @@ const axios = require('axios');
 const protobuf = require("protobufjs");
 
 module.exports = async (version = '5bf78a1') => {
-    const proto = await axios.get(`https://raw.githubusercontent.com/Furtif/POGOProtos/${version}/src/POGOProtos/Rpc/Rpc.proto`);
-    const rpc = protobuf.parse(proto.data).root.POGOProtos.Rpc;
+    const proto = await axios.get(`https://raw.githubusercontent.com/Furtif/POGOProtos/${version}/base/raw_protos.proto`);
+    const rpc = protobuf.parse(proto.data).root.DumpProtos;
 
     const assignWithCheck = (obj, field, value) => {
         if (obj[field]) {
@@ -45,46 +45,40 @@ module.exports = async (version = '5bf78a1') => {
             assignWithCheck(rpc, correctKey, value);
             continue;
         }
-        const prefix = key.replace(/./g, '$&_');
-        const assignRootEnum = (field) => {
-            for (const [subkey, subvalue] of Object.entries(value)) {
-                if (subkey.startsWith(prefix)) value[subkey.substr(prefix.length)] = subvalue;
-            }
-            assignWithCheck(rpc, field, value);
-        };
-        if (value[prefix + 'ACTIVITY_CATCH_POKEMON'] === 1) {
+        const assignRootEnum = (field) => assignWithCheck(rpc, field, value);
+        if (value['ACTIVITY_CATCH_POKEMON'] === 1) {
             assignRootEnum('HoloActivityType');
-        } else if (value[prefix + 'CHECKPOINT'] === 1) {
+        } else if (value['CHECKPOINT'] === 1) {
             assignRootEnum('FortType');
-        } else if (value[prefix + 'ITEM_CATEGORY_POKEBALL'] === 1) {
+        } else if (value['ITEM_CATEGORY_POKEBALL'] === 1) {
             assignRootEnum('HoloItemCategory');
-        } else if (value[prefix + 'ITEM_EFFECT_CAP_NO_MOVEMENT'] === 1002) {
+        } else if (value['ITEM_EFFECT_CAP_NO_MOVEMENT'] === 1002) {
             assignRootEnum('HoloItemEffect');
-        } else if (value[prefix + 'ITEM_TYPE_POKEBALL'] === 1) {
+        } else if (value['ITEM_TYPE_POKEBALL'] === 1) {
             assignRootEnum('HoloItemType');
-        } else if (value[prefix + 'POKEMON_CLASS_LEGENDARY'] === 1) {
+        } else if (value['POKEMON_CLASS_LEGENDARY'] === 1) {
             assignRootEnum('HoloPokemonClass');
-        } else if (value[prefix + 'V0001_FAMILY_BULBASAUR'] === 1) {
+        } else if (value['V0001_FAMILY_BULBASAUR'] === 1) {
             assignRootEnum('HoloPokemonFamilyId');
-        } else if (value[prefix + 'V0001_POKEMON_BULBASAUR'] === 1) {
+        } else if (value['V0001_POKEMON_BULBASAUR'] === 1) {
             assignRootEnum('HoloPokemonId');
-        } else if (value[prefix + 'V0001_MOVE_THUNDER_SHOCK'] === 1) {
+        } else if (value['V0001_MOVE_THUNDER_SHOCK'] === 1) {
             assignRootEnum('HoloPokemonMove');
-        } else if (value[prefix + 'POKEMON_ENC_MOVEMENT_JUMP'] === 1) {
+        } else if (value['POKEMON_ENC_MOVEMENT_JUMP'] === 1) {
             assignRootEnum('HoloPokemonMovementType');
-        } else if (value[prefix + 'POKEMON_TYPE_NORMAL'] === 1) {
+        } else if (value['POKEMON_TYPE_NORMAL'] === 1) {
             assignRootEnum('HoloPokemonType');
-        } else if (value[prefix + 'ITEM_POKE_BALL'] === 1) {
+        } else if (value['ITEM_POKE_BALL'] === 1) {
             assignRootEnum('Item');
-        } else if (value[prefix + 'GET_PLAYER'] === 2) {
+        } else if (value['GET_PLAYER'] === 2) {
             assignRootEnum('Method');
-        } else if (value[prefix + 'QUEST_HATCH_EGG'] === 6) {
+        } else if (value['QUEST_HATCH_EGG'] === 6) {
             assignRootEnum('QuestType');
-        } else if (value[prefix + 'RAID_LEVEL_1'] === 1) {
+        } else if (value['RAID_LEVEL_1'] === 1) {
             assignRootEnum('RaidLevel');
-        } else if (value[prefix + 'TEAM_BLUE'] === 1) {
+        } else if (value['TEAM_BLUE'] === 1) {
             assignRootEnum('Team');
-        } else if (value[prefix + 'TEMP_EVOLUTION_MEGA'] === 1) {
+        } else if (value['TEMP_EVOLUTION_MEGA'] === 1) {
             assignRootEnum('TempEvolution');    // obfuscated guessed name
         }
     }
