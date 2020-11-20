@@ -20,6 +20,7 @@ const tester = (spawn) => function () {
     it('HoloPokemonMove', () => assert.notStrictEqual(rpc.HoloPokemonMove.V0109_MOVE_PSYSTRIKE, undefined));
     it('HoloPokemonMovementType', () => assert.notStrictEqual(rpc.HoloPokemonMovementType.POKEMON_ENC_MOVEMENT_ELECTRIC, undefined));
     it('HoloPokemonType', () => assert.notStrictEqual(rpc.HoloPokemonType.POKEMON_TYPE_FAIRY, undefined));
+    it('HoloTemporaryEvolutionId', () => assert.notStrictEqual(rpc.HoloTemporaryEvolutionId.TEMP_EVOLUTION_MEGA_X, undefined));
     it('Item', () => assert.notStrictEqual(rpc.Item.ITEM_REVIVE, undefined));
     it('Method', () => assert.notStrictEqual(rpc.Method.GYM_GET_INFO, undefined));
     it('PokemonDisplayProto', () => assert.notStrictEqual(rpc.PokemonDisplayProto, undefined));
@@ -34,7 +35,6 @@ const tester = (spawn) => function () {
     it('QuestType', () => assert.notStrictEqual(rpc.QuestType.QUEST_BUDDY_FEED, undefined));
     it('RaidLevel', () => assert.notStrictEqual(rpc.RaidLevel.RAID_LEVEL_MEGA, undefined));
     it('Team', () => assert.notStrictEqual(rpc.Team.TEAM_RED, undefined));
-    it('TempEvolution', () => assert.notStrictEqual(rpc.TempEvolution.TEMP_EVOLUTION_MEGA_X, undefined));
 };
 
 describe('protos', tester(() => protos()));

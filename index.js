@@ -91,7 +91,7 @@ module.exports = async (version = '52cb8c6') => {
         } else if (value['TEAM_BLUE'] === 1) {
             assignRootEnum('Team');
         } else if (value['TEMP_EVOLUTION_MEGA'] === 1) {
-            assignRootEnum('TempEvolution');    // obfuscated guessed name
+            assignRootEnum('HoloTemporaryEvolutionId');
         }
     }
 
