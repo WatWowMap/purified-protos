@@ -1,6 +1,6 @@
 {
   "name": "purified-protos",
-  "version": "0.191.2",
+  "version": "0.193.0",
   "description": "Deobfuscate useful fields in POGOProtos",
   "main": "index.js",
   "scripts": {

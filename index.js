@@ -26,7 +26,7 @@ module.exports = async (version = 'b5dd4e8') => {
 
     const obfuscatedField = /^[A-Z]{11}$/;
     for (const [key, value] of Object.entries(rpc)) {
-        if (!obfuscatedField.test(key)) continue;
+        if (!value) continue;
         let correctKey = null;
         for (const [subkey, subvalue] of Object.entries(value)) {
             if (!obfuscatedField.test(subkey)) continue;
@@ -54,9 +54,10 @@ module.exports = async (version = 'b5dd4e8') => {
             }
         }
         if (correctKey !== null) {
-            assignWithCheck(rpc, correctKey, value);
+            if (correctKey !== key) assignWithCheck(rpc, correctKey, value);
             continue;
         }
+        if (!obfuscatedField.test(key)) continue;
         const assignRootEnum = (field) => assignWithCheck(rpc, field, value);
         if (value['ACTIVITY_CATCH_POKEMON'] === 1) {
             assignRootEnum('HoloActivityType');
@@ -80,6 +81,8 @@ module.exports = async (version = 'b5dd4e8') => {
             assignRootEnum('HoloPokemonMovementType');
         } else if (value['POKEMON_TYPE_NORMAL'] === 1) {
             assignRootEnum('HoloPokemonType');
+        } else if (value['TEMP_EVOLUTION_MEGA'] === 1) {
+            assignRootEnum('HoloTemporaryEvolutionId');
         } else if (value['ITEM_POKE_BALL'] === 1) {
             assignRootEnum('Item');
         } else if (value['GET_PLAYER'] === 2) {
@@ -90,8 +93,6 @@ module.exports = async (version = 'b5dd4e8') => {
             assignRootEnum('RaidLevel');
         } else if (value['TEAM_BLUE'] === 1) {
             assignRootEnum('Team');
-        } else if (value['TEMP_EVOLUTION_MEGA'] === 1) {
-            assignRootEnum('HoloTemporaryEvolutionId');
         }
     }
 
