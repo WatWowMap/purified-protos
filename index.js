@@ -1,7 +1,7 @@
 const axios = require('axios');
 const protobuf = require("protobufjs");
 
-module.exports = async (version = '9847105') => {
+const fetch = async (version) => {
     const proto = await axios.get(`https://raw.githubusercontent.com/Furtif/POGOProtos/${version}/base/raw_protos.proto`);
     const oldAdd = protobuf.Namespace.prototype.add;
     protobuf.Namespace.prototype.add = function (object) {
@@ -97,4 +97,27 @@ module.exports = async (version = '9847105') => {
     }
 
     return rpc;
+};
+const cache = {};
+
+module.exports = async (options = {}) => {
+    if (typeof options === 'string' || options instanceof String) {
+        options = {
+            version: options,
+        };
+    }
+    let { version, cached } = options;
+    if (version === undefined) {
+        version = '9847105';
+    }
+    if (cached === undefined) {
+        cached = true;
+    }
+    if (!cached) {
+        return await fetch(version);
+    } else if (cache[version]) {
+        return cache[version];
+    } else {
+        return cache[version] = await fetch(version);
+    }
 };
