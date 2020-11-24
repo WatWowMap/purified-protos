@@ -100,6 +100,13 @@ const fetch = async (version) => {
 };
 const cache = {};
 
+/**
+ * Fetch DumpProtos.
+ *
+ * @param options.version {string} The version you want, default: the version the library is based on.
+ * @param options.cached {boolean} This can be used to disable cache, default: true.
+ * @returns {Promise<protobuf.ReflectionObject>} DumpProtos.
+ */
 module.exports = async (options = {}) => {
     if (typeof options === 'string' || options instanceof String) {
         options = {

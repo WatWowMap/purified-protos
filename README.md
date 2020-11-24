@@ -9,7 +9,8 @@ Usage:
 ```js
 const protos = await require('purified-protos')();
 // or use this if you want to live on the edge and risk Furtif breaking stuff
-const protos = await require('purified-protos')('master');
+// cached can be used to disable cache, default: true
+const protos = await require('purified-protos')({ version: 'master', cached: false });
 
 console.log(protos.PokemonDisplayProto.Form.RUNERIGUS_NORMAL);  // prints 2516
 ```
