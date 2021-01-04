@@ -115,7 +115,7 @@ module.exports = async (options = {}) => {
     }
     let { version, cached } = options;
     if (version === undefined) {
-        version = '9847105';
+        version = '1f3e897';
     }
     if (cached === undefined) {
         cached = true;
